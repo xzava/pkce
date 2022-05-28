@@ -194,8 +194,8 @@ Consider donating if you find this as useful as I do.
 
 ## Check out my other open source libraries
 
-[pynamite](https://datatracker.ietf.org/doc/html/rfc7636) Python dynamodb library
-[jsonify](https://datatracker.ietf.org/doc/html/rfc7636) Flask json UI for interactive API's
+- [pynamite](https://datatracker.ietf.org/doc/html/rfc7636) Python dynamodb library
+- [jsonify](https://datatracker.ietf.org/doc/html/rfc7636) Flask json UI for interactive API's
 
 
 <!-- 

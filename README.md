@@ -23,7 +23,7 @@ This library deals with the creation and verification of PKCE codes, ie: `OAuth 
 pip install git+https://github.com/xzava/pkce.git --upgrade
 ```
 
-### EXAMPLES:
+### Examples
 
 > - No dependencies for the client 
 > - Only one optional import for the server. `pip install python-jose[cryptography]`
@@ -37,7 +37,12 @@ Pixy(
   code_challenge='C1MzkLRi_rKyRnxFkWa-5qfvuohwo5r3ufug4waI8Cw',
   code_challenge_method='S256'
 )
+```
 
+
+#### Extras
+
+```python
 >>> pixy = pkce.generate()
 >>> pixy.code_verifier  #> a password..
 'B98x18KCZsXdXoBKctzVnTmQ9_KaLQVSir6aL45zi1GuX_1MjBrfLb1DDAF4VBrRh4k2_-Fd9TTpSMWwYQki5P-bIfRoHsANtkqQofHe0xvut3SjQAzronvoIqlgftBl'
@@ -49,8 +54,10 @@ Pixy(
 >>> pkce.solve(pixy.code_verifier, pixy.code_challenge, pixy.code_challenge_method)
 True
 
-...
-...
+```
+
+#### Errors & Success
+```python
 
 >>> pkce.solve(**dict(pkce.generate())) 
 True

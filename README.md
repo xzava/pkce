@@ -5,7 +5,7 @@
 
 [pkce](https://github.com/xzava/pkce) 'Proof Key Code Exchange' or pronounced 'pixy' is a python PKCE library.
 
-This library deals with the creation and verification of PKCE codes, re: OAuth 2.0 'Code flow'
+This library deals with the creation and verification of PKCE codes, ie: `OAuth 2.0 'Code flow'`
 
 > Described here: [Official PKCE Spec](https://datatracker.ietf.org/doc/html/rfc7636)
 > Here: [oauth.net](https://oauth.net/2/pkce/)

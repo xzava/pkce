@@ -21,5 +21,8 @@ from .pkce import (generate,
 	_check_length,
 	_check_verifier,
 	_check_challenge,
-	_check_method
+	_check_method,
+	compare
 )
+
+from .utils import (short_code, make_code)

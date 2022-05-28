@@ -412,10 +412,6 @@ def solve(code_verifier=None, code_challenge=None, code_challenge_method="plain"
 		return {"error": "invalid_request", "error_description": "unknown error"}
 
 
-
-
-
-
 ###########################
 ###########################
 ###########################
@@ -506,6 +502,10 @@ def load_auth_code(auth_code, audience="auth_code"):
 		"assume no pkce and return unchanged auth_code"
 
 
-
-
-
+def compare(sent, received)
+	"""
+	Used to compare `Authorization Code` first the one you created and sent to a client, then the one received back.
+	They should be the same.
+	"""
+	if sent and received and secrets.compare_digest(sent, received) is True:
+		return True

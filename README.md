@@ -70,13 +70,13 @@ True
 ### STEPS:
 
 1. Client creates the pixy object,
-> 2. They save it in a database/keyvalue store, they need it later.
+2. They save it in a database/keyvalue store, they need it later.
 3. Client sends `Code Challenge` to the server to say, 'I want a `Authorization Code`, remember me for later'
-> 4. Server creates a `Authorization Code` and saves both `Authorization Code` and `Code Challenge`, they need it later. 
+4. Server creates a `Authorization Code` and saves both `Authorization Code` and `Code Challenge`, they need it later. 
 5. Server sends the `Authorization Code` they created and the `Code Challenge` from the client
-> 6. Client uses the `Code Challenge`  as a key to get the `Code Verifier` that they saved somewhere
+6. Client uses the `Code Challenge`  as a key to get the `Code Verifier` that they saved somewhere
 7. Client returns all three codes to the server. `Code Verifier`, `Code Challenge`, `Authorization Code`
-> 8. Server checks the `Authorization Code` is unused and valid, then checks the `Code Verifier` hashes into the `Code Challenge`
+8. Server checks the `Authorization Code` is unused and valid, then checks the `Code Verifier` hashes into the `Code Challenge`
 9. Server says thanks I trust its you who made the request, here is the `Authorization Code` you requested.
 
 

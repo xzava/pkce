@@ -25,8 +25,8 @@ pip install git+https://github.com/xzava/pkce.git --upgrade
 
 ### EXAMPLES:
 
-> No imports for the client.. 
-> One optional import for the server. `pip install python-jose[cryptography]`
+> - No dependencies for the client 
+> - Only one optional import for the server. `pip install python-jose[cryptography]`
 
 ```python
 
@@ -39,11 +39,11 @@ Pixy(
 )
 
 >>> pixy = pkce.generate()
->>> pixy.code_verifier
+>>> pixy.code_verifier  #> a password..
 'B98x18KCZsXdXoBKctzVnTmQ9_KaLQVSir6aL45zi1GuX_1MjBrfLb1DDAF4VBrRh4k2_-Fd9TTpSMWwYQki5P-bIfRoHsANtkqQofHe0xvut3SjQAzronvoIqlgftBl'
->>> pixy.code_challenge
+>>> pixy.code_challenge #> a hash of the password..
 'UJFi4jeGi8t9IiYecJm7-1JWklXMDIKOaDHkYXqCw0k'
->>> pixy.code_challenge_method
+>>> pixy.code_challenge_method #> the hash method use to hash the password..
 'S256'
 
 >>> pkce.solve(pixy.code_verifier, pixy.code_challenge, pixy.code_challenge_method)

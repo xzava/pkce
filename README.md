@@ -13,7 +13,7 @@ This library deals with the creation and verification of PKCE codes, ie: `OAuth 
 > - And here: [xero.com](https://developer.xero.com/documentation/guides/oauth2/pkce-flow/)
 
 <p align="center">
-  <img height="200px" src="https://raw.githubusercontent.com/xzava/pkce/main/docs/pixy2.png">
+  <img height="200px" src="https://raw.githubusercontent.com/xzava/pkce/main/docs/pixy.png">
 </p>
 
 
@@ -78,6 +78,11 @@ True
 7. Client returns all three codes to the server. `Code Verifier`, `Code Challenge`, `Authorization Code`
 8. Server checks the `Authorization Code` is unused and valid, then checks the `Code Verifier` hashes into the `Code Challenge`
 9. Server says thanks I trust its you who made the request, here is the `Authorization Code` you requested.
+
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/xzava/pkce/main/docs/pkce.png">
+</p>
 
 
 ## Notes:

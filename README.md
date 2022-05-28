@@ -5,11 +5,9 @@
 
 pkce 'Proof Key Code Exchange' or pronounced 'pixy' is a python PKCE library.
 
-This library mainly deals with the creation and verification of PKCE codes
+This library deals with the creation and verification of PKCE codes
 
 > Described here: [Official Spec](https://datatracker.ietf.org/doc/html/rfc7636)
-
-How you send, store, track these codes is dependent on your software stack.
 
 <p align="center">
   <img height="200px" src="https://raw.githubusercontent.com/xzava/pkce/main/docs/pixy2.png">
@@ -66,10 +64,10 @@ True
 9. Server says thanks I trust its you who made the request, here is the `Authorization Code` you requested.
 
 
-## Note:
+## Notes:
 
 Its possible for the server to encrypt all information inside the `Authorization Code` and pass that back to the client, avoid a database round trip.
-The sever should still check for expiry and token reuse, the later still requires database.
+The sever should still check for expiry and token reuse, the latter still requires database.
 
 I have also seen JavaScript web apps store information encrypted in the headers, how you store this information is up to you.
 
@@ -78,6 +76,7 @@ I store it in a key/value database (dynamodb using pynamite)
 
 ### PROTOCOL
 
+```
 # https://datatracker.ietf.org/doc/html/rfc7636
 Protocol ..........................................................8
   4.1. Client Creates a Code Verifier .............................8
@@ -137,7 +136,7 @@ Base64url Encoding
   without the inclusion of any line breaks, whitespace, or other
   additional characters.  (See Appendix A for notes on implementing
   base64url encoding without padding.)
-
+```
 
 
 ## Functions for Clients:
@@ -167,21 +166,33 @@ pkce.load_auth_code()
 
 > requires a FERNET_KEY env --> from cryptography.fernet import Fernet;Fernet.generate_key().decode()
 
-Feel free to use your own method to store this information, in stateless/statefull way.
+Feel free to use your own method to store this information, in stateless or statefull way.
 
 ## UTILS
 
-```
+```python
 utils.make_code()
 utils.short_code()
 ```
 
 ## Whats the point?
 
-[Official Spec](https://datatracker.ietf.org/doc/html/rfc7636)
+[Official PKCE Spec](https://datatracker.ietf.org/doc/html/rfc7636)
 [wtf-is-pkce-and-why-should-you-care](https://dzone.com/articles/what-is-pkce)
 
 
+## Donate
+
+Making this free and useful is the right thing to do. Consider donating if you find this as useful as I do. 
+
+[<td style="text-align:center"> <img alt="Buymeacoffee logo" src="https://cdn.buymeacoffee.com/assets/img/email-template/bmc-new-logo.png" style="max-width:100%;width:200px" class="CToWUd"> </td>](https://www.buymeacoffee.com/kaurifund)
+
+
+
+## Check out my other open source libraries
+
+[pynamite](https://datatracker.ietf.org/doc/html/rfc7636) Python dynamodb library
+[jsonify](https://datatracker.ietf.org/doc/html/rfc7636) Flask json UI for interactive API's
 
 
 <!-- 
@@ -189,11 +200,11 @@ utils.short_code()
 
 [Create a venv first]
 
-git clone https://github.com/xzava/pynamite.git
-cd pynamite
+git clone https://github.com/xzava/pkce.git
+cd pkce
 
 python setup.py develop
-python setup.py develop pynamite[testing]
+python setup.py develop pkce[testing]
 
 pip install -r requirements_dev.txt
 
@@ -204,13 +215,13 @@ python -m pytest
 python setup.py develop --uninstall
 
 
-python setup.py develop easy_install pynamite[testing]
+python setup.py develop easy_install pkce[testing]
 ```
 
 
 ```
-pip install git+https://github.com/xzava/pynamite.git --upgrade
-pip uninstall pynamite
+pip install git+https://github.com/xzava/pkce.git --upgrade
+pip uninstall pkce
 
 python setup.py develop --uninstall
 

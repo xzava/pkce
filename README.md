@@ -8,6 +8,9 @@
 This library deals with the creation and verification of PKCE codes, re: OAuth 2.0 'Code flow'
 
 > Described here: [Official PKCE Spec](https://datatracker.ietf.org/doc/html/rfc7636)
+> Here: [oauth.net](https://oauth.net/2/pkce/)
+> Here: [auth0.com](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authorization-code-flow-with-proof-key-for-code-exchange-pkce)
+> And here: [xero.com](https://developer.xero.com/documentation/guides/oauth2/pkce-flow/)
 
 <p align="center">
   <img height="200px" src="https://raw.githubusercontent.com/xzava/pkce/main/docs/pixy2.png">
@@ -22,6 +25,8 @@ pip install git+https://github.com/xzava/pkce.git --upgrade
 
 ### EXAMPLES:
 
+> No imports for the client.. 
+> One optional import for the server. `pip install python-jose[cryptography]`
 
 ```python
 
@@ -45,9 +50,20 @@ Pixy(
 True
 
 ...
+...
 
->>> pkce.solve(**dict(pkce.generate()))
+>>> pkce.solve(**dict(pkce.generate())) 
 True
+
+>>> pkce.solve("password123", pixy.code_challenge, pixy.code_challenge_method)
+{'error': 'invalid_request', 'error_description': 'verifier is out of spec'}
+
+>>> pkce.solve("JEsUBbjgXB4szfBn7-LJ7vOir1t_rqBX8mLDHO-yeVdipl9PlS2gvRAPQsldb8MtkVZ_azGtqtQfn6dvRPPlgsWHDLr3HcLjEuuW9yq58Mgj7XW0lhwImt1smVdjF879", pixy.code_challenge, pixy.code_challenge_method)
+{'error': 'invalid_grant', 'error_description': 'code verifier failed'}
+
+>>> pkce.solve('B98x18KCZsXdXoBKctzVnTmQ9_KaLQVSir6aL45zi1GuX_1MjBrfLb1DDAF4VBrRh4k2_-Fd9TTpSMWwYQki5P-bIfRoHsANtkqQofHe0xvut3SjQAzronvoIqlgftBl', pixy.code_challenge, pixy.code_challenge_method)
+True
+
 ```
 
 
@@ -188,6 +204,7 @@ Feel free to use your own method to store this information, in stateless or stat
 ## Donate
 
 > Making this free and useful is the right thing to do.
+
 Consider donating if you find this as useful as I do. 
 
 [<td style="text-align:center"> <img alt="Buymeacoffee logo" src="https://cdn.buymeacoffee.com/assets/img/email-template/bmc-new-logo.png" style="max-width:100%;width:200px" class="CToWUd"> </td>](https://www.buymeacoffee.com/kaurifund)

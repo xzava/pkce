@@ -9,10 +9,8 @@ This library deals with the creation and verification of PKCE codes, ie: `OAuth 
 
 > - Described here: [Official PKCE Spec](https://datatracker.ietf.org/doc/html/rfc7636)
 > - Here: [oauth.net](https://oauth.net/2/pkce/)
-
-> Here: [auth0.com](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authorization-code-flow-with-proof-key-for-code-exchange-pkce)
-
-> And here: [xero.com](https://developer.xero.com/documentation/guides/oauth2/pkce-flow/)
+> - Here: [auth0.com](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authorization-code-flow-with-proof-key-for-code-exchange-pkce)
+> - And here: [xero.com](https://developer.xero.com/documentation/guides/oauth2/pkce-flow/)
 
 <p align="center">
   <img height="200px" src="https://raw.githubusercontent.com/xzava/pkce/main/docs/pixy2.png">

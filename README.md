@@ -66,12 +66,12 @@ True
 
 ## Notes:
 
-Its possible for the server to encrypt all information inside the `Authorization Code` and pass that back to the client, avoid a database round trip.
+- Its possible for the server to encrypt all information inside the `Authorization Code` and pass that back to the client, avoid a database round trip.
 The sever should still check for expiry and token reuse, the latter still requires database.
 
-I have also seen JavaScript web apps store information encrypted in the headers, how you store this information is up to you.
+- I have also seen JavaScript web apps store information encrypted in the headers, how you store this information is up to you.
 
-I store it in a key/value database (dynamodb using pynamite)
+- I store it in a key/value database (dynamodb using pynamite)
 
 
 ### PROTOCOL
@@ -144,7 +144,6 @@ Base64url Encoding
 ```python
 
 pkce.generate()
-
 pkce.make_verifier()
 pkce.make_challenge()
 
@@ -171,19 +170,23 @@ Feel free to use your own method to store this information, in stateless or stat
 ## UTILS
 
 ```python
-utils.make_code()
-utils.short_code()
+
+# Used for creating `Authorization Code` or 'Nonce'
+
+>>> pkce.make_code()  #> 'RhHQthqhHC7D6uy29YMInnKzOck5Rg74s36lMZ4gplT'
+>>> pkce.short_code() #> 'sPYPr1evEU0EpROcqCAKz4yiDB2EzVTa'
 ```
 
 ## Whats the point?
 
-[Official PKCE Spec](https://datatracker.ietf.org/doc/html/rfc7636)
-[wtf-is-pkce-and-why-should-you-care](https://dzone.com/articles/what-is-pkce)
+- [Official PKCE Spec](https://datatracker.ietf.org/doc/html/rfc7636)
+- [wtf-is-pkce-and-why-should-you-care](https://dzone.com/articles/what-is-pkce)
 
 
 ## Donate
 
-Making this free and useful is the right thing to do. Consider donating if you find this as useful as I do. 
+> Making this free and useful is the right thing to do.
+Consider donating if you find this as useful as I do. 
 
 [<td style="text-align:center"> <img alt="Buymeacoffee logo" src="https://cdn.buymeacoffee.com/assets/img/email-template/bmc-new-logo.png" style="max-width:100%;width:200px" class="CToWUd"> </td>](https://www.buymeacoffee.com/kaurifund)
 

@@ -7,9 +7,11 @@
 
 This library deals with the creation and verification of PKCE codes, ie: `OAuth 2.0 'Code flow'`
 
-> Described here: [Official PKCE Spec](https://datatracker.ietf.org/doc/html/rfc7636)
-> Here: [oauth.net](https://oauth.net/2/pkce/)
+> - Described here: [Official PKCE Spec](https://datatracker.ietf.org/doc/html/rfc7636)
+> - Here: [oauth.net](https://oauth.net/2/pkce/)
+
 > Here: [auth0.com](https://auth0.com/docs/get-started/authentication-and-authorization-flow/authorization-code-flow-with-proof-key-for-code-exchange-pkce)
+
 > And here: [xero.com](https://developer.xero.com/documentation/guides/oauth2/pkce-flow/)
 
 <p align="center">
@@ -203,9 +205,9 @@ Feel free to use your own method to store this information, in stateless or stat
 
 ## Donate
 
-> Making this free and useful is the right thing to do.
+> Consider donating if you find this as useful as I do. 
 
-Consider donating if you find this as useful as I do. 
+Making this free and useful is the right thing to do.
 
 [<td style="text-align:center"> <img alt="Buymeacoffee logo" src="https://cdn.buymeacoffee.com/assets/img/email-template/bmc-new-logo.png" style="max-width:100%;width:200px" class="CToWUd"> </td>](https://www.buymeacoffee.com/kaurifund)
 

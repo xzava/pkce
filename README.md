@@ -158,6 +158,7 @@ pkce.make_challenge()
 pkce.solve()
 pkce.create_auth_code()
 pkce.load_auth_code()
+pkce.compare() #> Compare Authorization Code's
 
 ```
 
@@ -175,6 +176,7 @@ Feel free to use your own method to store this information, in stateless or stat
 
 >>> pkce.make_code()  #> 'RhHQthqhHC7D6uy29YMInnKzOck5Rg74s36lMZ4gplT'
 >>> pkce.short_code() #> 'sPYPr1evEU0EpROcqCAKz4yiDB2EzVTa'
+
 ```
 
 ## Whats the point?

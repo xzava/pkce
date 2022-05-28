@@ -1,18 +1,18 @@
 > README.md
 
 
-# pkce: 
+# PKCE 'Proof Key Code Exchange' 
 
 pkce 'Proof Key Code Exchange' or pronounced 'pixy' is a python PKCE library.
 
 This library mainly deals with the creation and verification of PKCE codes
 
-> Described here: [Offical Spec](https://datatracker.ietf.org/doc/html/rfc7636)
+> Described here: [Official Spec](https://datatracker.ietf.org/doc/html/rfc7636)
 
-How you send, store, track these codes is dependant on your software stack.
+How you send, store, track these codes is dependent on your software stack.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/xzava/pkce/main/docs/pixy.png">
+  <img height="200px" src="https://raw.githubusercontent.com/xzava/pkce/main/docs/pixy2.png">
 </p>
 
 
@@ -46,28 +46,32 @@ Pixy(
 >>> pkce.solve(pixy.code_verifier, pixy.code_challenge, pixy.code_challenge_method)
 True
 
+...
+
+>>> pkce.solve(**dict(pkce.generate()))
+True
 ```
 
 
 ### STEPS:
 
-1. Client create the pixy object,
+1. Client creates the pixy object,
 2. They save it in a database/keyvalue store, they need it later.
-3. Client sends `Code Challenge` to the server to say, 'hey remember me for later'
+3. Client sends `Code Challenge` to the server to say, 'I want a `Authorization Code`, remember me for later'
 4. Server creates a `Authorization Code` and saves both `Authorization Code` and `Code Challenge`, they need it later. 
 5. Server sends the `Authorization Code` they created and the `Code Challenge` from the client
-6. Client uses the `Code Challenge` to get the `Code Verifier` that they saved somewhere
+6. Client uses the `Code Challenge`  as a key to get the `Code Verifier` that they saved somewhere
 7. Client returns all three codes to the server. `Code Verifier`, `Code Challenge`, `Authorization Code`
 8. Server checks the `Authorization Code` is unused and valid, then checks the `Code Verifier` hashes into the `Code Challenge`
-9. Server says thanks I trust its you who made the request, here is the thing you requested.
+9. Server says thanks I trust its you who made the request, here is the `Authorization Code` you requested.
 
 
 ## Note:
 
-Its possiple for the server to encrpt all information inside the `Authorization Code` and pass that back to the client, avoid a database round trip.
+Its possible for the server to encrypt all information inside the `Authorization Code` and pass that back to the client, avoid a database round trip.
 The sever should still check for expiry and token reuse, the later still requires database.
 
-I have also seen javascript web apps store information encrpted in the headers, how you store this information is up to you.
+I have also seen JavaScript web apps store information encrypted in the headers, how you store this information is up to you.
 
 I store it in a key/value database (dynamodb using pynamite)
 
@@ -159,7 +163,7 @@ pkce.load_auth_code()
 
 ```
 
-`create_auth_code()` and `load_auth_code()` encrypt and decrpt the PKCE information into the `Authorization Code`
+`create_auth_code()` and `load_auth_code()` encrypt and decrypt the PKCE information into the `Authorization Code`
 
 > requires a FERNET_KEY env --> from cryptography.fernet import Fernet;Fernet.generate_key().decode()
 
@@ -174,7 +178,7 @@ utils.short_code()
 
 ## Whats the point?
 
-[Offical Spec](https://datatracker.ietf.org/doc/html/rfc7636)
+[Official Spec](https://datatracker.ietf.org/doc/html/rfc7636)
 [wtf-is-pkce-and-why-should-you-care](https://dzone.com/articles/what-is-pkce)
 
 

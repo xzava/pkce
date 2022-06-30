@@ -25,8 +25,8 @@ pip install git+https://github.com/xzava/pkce.git --upgrade
 
 ### Examples
 
-> - No dependencies for the client 
-> - Only one optional import for the server. `pip install python-jose[cryptography]`
+> - No dependencies for the client server
+> - Only one optional import for the auth server. `pip install python-jose[cryptography]`
 
 ```python
 

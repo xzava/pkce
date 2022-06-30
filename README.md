@@ -167,7 +167,7 @@ Base64url Encoding
 ```
 
 
-## Functions for Clients:
+## Functions for Client Server:
 
 ```python
 
@@ -179,7 +179,7 @@ pkce.make_challenge()
 ```
 
 
-## Functions for Servers:
+## Functions for Auth Server:
 
 ```python
 

@@ -502,7 +502,7 @@ def load_auth_code(auth_code, audience="auth_code"):
 		"assume no pkce and return unchanged auth_code"
 
 
-def compare(sent, received)
+def compare(sent, received):
 	"""
 	Used to compare `Authorization Code` first the one you created and sent to a client, then the one received back.
 	They should be the same.
